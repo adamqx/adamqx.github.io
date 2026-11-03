@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thermoelectric (Peltier) Refrigerator | Adam Sabek</title>
+<meta name="description" content="A group project to build a refrigerator with no liquid cooling and no pressurized systems, using a single Peltier module.">
+<style>
+:root { --bg:#f6f6f4; --surface:#e9e9e5; --text:#1d1d1f; --muted:#5d5d63; --link:#1a5fd0; --line:#d6d6d0; --warn:#b3261e; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg:#1c1c1e; --surface:#2b2b2e; --text:#ececee; --muted:#a2a2a8; --link:#5b9bff; --line:#3a3a3e; --warn:#ff8a80; }
+}
+:root[data-theme="dark"] { --bg:#1c1c1e; --surface:#2b2b2e; --text:#ececee; --muted:#a2a2a8; --link:#5b9bff; --line:#3a3a3e; --warn:#ff8a80; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+a { color:var(--link); text-decoration:none; } a:hover { text-decoration:underline; }
+a:focus-visible { outline:2px solid var(--link); outline-offset:3px; border-radius:6px; }
+.top { max-width:860px; margin:0 auto; padding:1.5rem 1.25rem 0; }
+main { max-width:680px; margin:0 auto; padding:1rem 1.25rem 4rem; }
+.wide { max-width:860px; margin:1.5rem auto; padding:0 1.25rem; }
+h1 { font-size:clamp(2rem,5.5vw,3rem); line-height:1.1; letter-spacing:-0.02em; margin:1.5rem 0 .5rem; }
+h2 { font-size:1.6rem; margin:2.75rem 0 .75rem; letter-spacing:-0.01em; }
+p { margin:0 0 1rem; } .meta { color:var(--muted); }
+ul { padding-left:1.2rem; } li { margin-bottom:.4rem; }
+figure { margin:0; } figcaption { color:var(--muted); font-size:.92rem; margin-top:.5rem; }
+img { max-width:100%; height:auto; border-radius:14px; display:block; background:var(--surface); }
+.photos { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; align-items:start; }
+.photos img { width:100%; }
+.diagram img { background:#fff; width:100%; }
+.facts { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; margin:1.25rem 0 1.5rem; padding:0; list-style:none; }
+.facts li { background:var(--surface); border-radius:14px; padding:.9rem 1rem; margin:0; }
+.facts b { display:block; font-size:1.5rem; line-height:1.2; }
+.facts span { color:var(--muted); font-size:.92rem; }
+.chart { width:100%; height:auto; display:block; }
+.chart .grid { stroke:var(--line); stroke-width:1; }
+.chart .tick,.chart .axis { fill:var(--muted); font-size:12px; }
+.chart .line { fill:none; stroke:var(--link); stroke-width:2.5; }
+.chart .dot { fill:var(--link); }
+.chart .target { stroke:var(--warn); stroke-width:1.5; stroke-dasharray:6 4; }
+.chart .tgt { fill:var(--warn); font-size:12px; font-weight:600; }
+.chartbox { background:var(--surface); border-radius:14px; padding:1rem; }
+.chartbox + .chartbox { margin-top:1rem; }
+.chartbox h3 { font-size:1rem; margin:0 0 .5rem; }
+table { border-collapse:collapse; width:100%; font-size:.95rem; }
+th,td { text-align:left; padding:.5rem .6rem; border-top:1px solid var(--line); }
+th { font-weight:600; }
+.tablewrap { overflow-x:auto; }
+footer { max-width:680px; margin:0 auto; padding:0 1.25rem 3rem; color:var(--muted); font-size:.9rem; }
+</style>
+</head>
+<body>
+<div class="top"><a href="index.html">About</a> &nbsp;&bull;&nbsp; <a href="research.html">Research</a> &nbsp;&bull;&nbsp; <a href="projects.html">Projects</a></div>
+
+<main>
+  <h1>Thermoelectric (Peltier) refrigerator</h1>
+  <p class="meta">Group project for EML3101 (Thermodynamics), University of North Florida, Spring 2026. Our team of four built and tested it together.</p>
+
+  <p>The assignment was to build a refrigerator from leftover supplies and a prefabricated cooler, with two rules: no liquid cooling and no pressurized systems. The goal was to keep food from spoiling or drinks cooler than room temperature, reaching 40°F or lower without overheating or creating a hazard.</p>
+
+  <h2>Why a Peltier module</h2>
+  <p>Vapor-compression refrigeration, the kind in a home fridge, needs a compressor and pressurized refrigerant, so the rules ruled it out. Evaporative cooling depends on humidity and adds moisture, which is bad for food. That left thermoelectric cooling: a Peltier module moves heat from one side to the other using only electricity, with no fluids and no moving parts apart from the fans.</p>
+
+  <h2>The build</h2>
+  <p>We cut a beveled square opening in the Styrofoam lid and fit the Peltier module there, with a heat sink on the cold side inside the cooler and a heat sink and fan on the hot side outside. Insulation tape and double-sided adhesive sealed the gaps around the module. A 20 V battery fed a 20-to-12 V transformer to power it, within the 12 V DC limit.</p>
+</main>
+
+<div class="wide">
+  <div class="photos">
+    <figure>
+      <img src="images/peltier-cooler-top.jpg" alt="The Peltier module with its heat sink and fan mounted on the white Styrofoam lid, wired to a yellow DeWalt battery." width="426" height="420">
+      <figcaption>The assembled module on the lid, wired to the battery.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/peltier-cold-side.jpg" alt="Underside of the lid showing the cold-side heat sink sitting in the beveled opening cut into the Styrofoam, with copper heat pipes above it." width="495" height="421">
+      <figcaption>The cold-side heat sink sitting in the opening cut into the lid.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="wide diagram">
+  <figure>
+    <img src="images/peltier-diagram.jpg" alt="Cross-section drawing of the Styrofoam cooler with the Peltier module in the lid, showing heat leaving through the hot-side heat sink and fans, and heat leaking in through the walls." width="1400" height="1125">
+    <figcaption>Our design drawing. Heat is pulled out through the cold-side heat sink and pushed out the top, while some heat keeps leaking in through the walls.</figcaption>
+  </figure>
+</div>
+
+<main>
+  <h2>How we tested it</h2>
+  <p>We let the cooler sit in a room until it matched the room temperature, confirmed 12 V with a multimeter, then powered it on and read the inside temperature at set intervals. We also measured the current drawn so we could calculate power in, and logged everything in Excel.</p>
+</main>
+
+<div class="wide">
+  <div class="chartbox">
+    <h3>Test 1: 120 minutes</h3>
+    <svg viewBox="0 0 560 290" role="img" aria-label="Test 1: inside temperature falls from 73.2 to 52.7 degrees Fahrenheit over 120 minutes, staying above the 40 degree target" class="chart">
+<line x1="52" x2="544" y1="244.0" y2="244.0" class="grid"/><text x="44" y="248.0" text-anchor="end" class="tick">40</text>
+<line x1="52" x2="544" y1="211.4" y2="211.4" class="grid"/><text x="44" y="215.4" text-anchor="end" class="tick">45</text>
+<line x1="52" x2="544" y1="178.9" y2="178.9" class="grid"/><text x="44" y="182.9" text-anchor="end" class="tick">50</text>
+<line x1="52" x2="544" y1="146.3" y2="146.3" class="grid"/><text x="44" y="150.3" text-anchor="end" class="tick">55</text>
+<line x1="52" x2="544" y1="113.7" y2="113.7" class="grid"/><text x="44" y="117.7" text-anchor="end" class="tick">60</text>
+<line x1="52" x2="544" y1="81.1" y2="81.1" class="grid"/><text x="44" y="85.1" text-anchor="end" class="tick">65</text>
+<line x1="52" x2="544" y1="48.6" y2="48.6" class="grid"/><text x="44" y="52.6" text-anchor="end" class="tick">70</text>
+<line x1="52" x2="544" y1="16.0" y2="16.0" class="grid"/><text x="44" y="20.0" text-anchor="end" class="tick">75</text>
+<text x="52.0" y="262" text-anchor="middle" class="tick">0</text>
+<text x="175.0" y="262" text-anchor="middle" class="tick">30</text>
+<text x="298.0" y="262" text-anchor="middle" class="tick">60</text>
+<text x="421.0" y="262" text-anchor="middle" class="tick">90</text>
+<text x="544.0" y="262" text-anchor="middle" class="tick">120</text>
+<line x1="52" x2="544" y1="244.0" y2="244.0" class="target"/>
+<text x="540" y="238.0" text-anchor="end" class="tgt">40°F target</text>
+<polyline points="52.0,27.7 113.5,127.4 175.0,143.7 236.5,146.3 298.0,152.1 359.5,156.7 421.0,152.1 482.5,158.7 544.0,161.3" class="line"/>
+<circle cx="52.0" cy="27.7" r="3.5" class="dot"/>
+<circle cx="113.5" cy="127.4" r="3.5" class="dot"/>
+<circle cx="175.0" cy="143.7" r="3.5" class="dot"/>
+<circle cx="236.5" cy="146.3" r="3.5" class="dot"/>
+<circle cx="298.0" cy="152.1" r="3.5" class="dot"/>
+<circle cx="359.5" cy="156.7" r="3.5" class="dot"/>
+<circle cx="421.0" cy="152.1" r="3.5" class="dot"/>
+<circle cx="482.5" cy="158.7" r="3.5" class="dot"/>
+<circle cx="544.0" cy="161.3" r="3.5" class="dot"/>
+<text x="298.0" y="284" text-anchor="middle" class="axis">Time (minutes)</text>
+<text transform="translate(14 130.0) rotate(-90)" text-anchor="middle" class="axis">Inside temperature (°F)</text>
+</svg>
+  </div>
+  <div class="chartbox">
+    <h3>Test 2: 16 minutes</h3>
+    <svg viewBox="0 0 560 290" role="img" aria-label="Test 2: inside temperature falls from 72.9 to 57.9 degrees Fahrenheit over 16 minutes" class="chart">
+<line x1="52" x2="544" y1="244.0" y2="244.0" class="grid"/><text x="44" y="248.0" text-anchor="end" class="tick">40</text>
+<line x1="52" x2="544" y1="211.4" y2="211.4" class="grid"/><text x="44" y="215.4" text-anchor="end" class="tick">45</text>
+<line x1="52" x2="544" y1="178.9" y2="178.9" class="grid"/><text x="44" y="182.9" text-anchor="end" class="tick">50</text>
+<line x1="52" x2="544" y1="146.3" y2="146.3" class="grid"/><text x="44" y="150.3" text-anchor="end" class="tick">55</text>
+<line x1="52" x2="544" y1="113.7" y2="113.7" class="grid"/><text x="44" y="117.7" text-anchor="end" class="tick">60</text>
+<line x1="52" x2="544" y1="81.1" y2="81.1" class="grid"/><text x="44" y="85.1" text-anchor="end" class="tick">65</text>
+<line x1="52" x2="544" y1="48.6" y2="48.6" class="grid"/><text x="44" y="52.6" text-anchor="end" class="tick">70</text>
+<line x1="52" x2="544" y1="16.0" y2="16.0" class="grid"/><text x="44" y="20.0" text-anchor="end" class="tick">75</text>
+<text x="52.0" y="262" text-anchor="middle" class="tick">0</text>
+<text x="175.0" y="262" text-anchor="middle" class="tick">4</text>
+<text x="298.0" y="262" text-anchor="middle" class="tick">8</text>
+<text x="421.0" y="262" text-anchor="middle" class="tick">12</text>
+<text x="544.0" y="262" text-anchor="middle" class="tick">16</text>
+<line x1="52" x2="544" y1="244.0" y2="244.0" class="target"/>
+<text x="540" y="238.0" text-anchor="end" class="tgt">40°F target</text>
+<polyline points="52.0,29.7 113.5,32.3 175.0,48.6 236.5,70.1 298.0,87.7 359.5,102.6 421.0,113.1 482.5,121.5 544.0,127.4" class="line"/>
+<circle cx="52.0" cy="29.7" r="3.5" class="dot"/>
+<circle cx="113.5" cy="32.3" r="3.5" class="dot"/>
+<circle cx="175.0" cy="48.6" r="3.5" class="dot"/>
+<circle cx="236.5" cy="70.1" r="3.5" class="dot"/>
+<circle cx="298.0" cy="87.7" r="3.5" class="dot"/>
+<circle cx="359.5" cy="102.6" r="3.5" class="dot"/>
+<circle cx="421.0" cy="113.1" r="3.5" class="dot"/>
+<circle cx="482.5" cy="121.5" r="3.5" class="dot"/>
+<circle cx="544.0" cy="127.4" r="3.5" class="dot"/>
+<text x="298.0" y="284" text-anchor="middle" class="axis">Time (minutes)</text>
+<text transform="translate(14 130.0) rotate(-90)" text-anchor="middle" class="axis">Inside temperature (°F)</text>
+</svg>
+  </div>
+</div>
+
+<main>
+  <h2>Results</h2>
+  <ul class="facts">
+    <li><b>73.2°F to 52.7°F</b><span>Test 1, over 2 hours</span></li>
+    <li><b>Missed 40°F</b><span>The target we set out to reach</span></li>
+    <li><b>COP 0.12 to 0.16</b><span>Across the two tests</span></li>
+    <li><b>Under 1%</b><span>Second-law efficiency</span></li>
+  </ul>
+  <p>The refrigerator worked, but not well enough. It cooled the inside by about 20°F, and cooling slowed as it approached steady state. It never reached the 40°F requirement.</p>
+  <p>We compared the actual coefficient of performance (COP) with the ideal Carnot limit for the same temperatures. Test 1 drew 48.5 W (12 V at 4.04 A) and removed about 7.9 W of heat, for a COP of 0.164 against a Carnot limit near 25. That gap, under 1% second-law efficiency, is how much real losses cost us.</p>
+
+  <h2>What held it back</h2>
+  <ul>
+    <li>Heat leaking in through the Styrofoam walls was the largest load, bigger than the cooling the single module could deliver.</li>
+    <li>One Peltier module was too small for a cooler this size.</li>
+    <li>Heat built up on the hot side, which reduces how well the module works.</li>
+    <li>The cold side iced over quickly in every test.</li>
+  </ul>
+
+  <h2>What we would change</h2>
+  <ul>
+    <li>A larger cold-side heat sink with fans.</li>
+    <li>More Peltier modules, or a smaller enclosure.</li>
+    <li>A better seal around the module opening and the lid rim, to cut leakage and irreversibility.</li>
+  </ul>
+
+  <h2>Tools</h2>
+  <p>Peltier module, heat sinks and fans, multimeter, thermometer, Excel for data and thermodynamic calculations (heat transfer, COP, entropy generation, irreversibility).</p>
+</main>
+
+<footer><a href="projects.html">Back to projects</a></footer>
+</body>
+</html>
