@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thermoelectric (Peltier) Refrigerator | Adam Sabek</title>
-<meta name="description" content="A group project to build a refrigerator with no liquid cooling and no pressurized systems, using a single Peltier module.">
+<meta name="description" content="A project to build a refrigerator with no liquid cooling and no pressurized systems, using a single Peltier module.">
 <style>
 :root { --bg:#f6f6f4; --surface:#e9e9e5; --text:#1d1d1f; --muted:#5d5d63; --link:#1a5fd0; --line:#d6d6d0; --warn:#b3261e; }
 @media (prefers-color-scheme: dark) {
@@ -53,15 +53,15 @@ footer { max-width:680px; margin:0 auto; padding:0 1.25rem 3rem; color:var(--mut
 
 <main>
   <h1>Thermoelectric (Peltier) refrigerator</h1>
-  <p class="meta">Group project for EML3101 (Thermodynamics), University of North Florida, Spring 2026. Our team of four built and tested it together.</p>
+  <p class="meta">Thermodynamics project, University of North Florida, Spring 2026. Built and tested it.</p>
 
-  <p>The assignment was to build a refrigerator from leftover supplies and a prefabricated cooler, with two rules: no liquid cooling and no pressurized systems. The goal was to keep food from spoiling or drinks cooler than room temperature, reaching 40°F or lower without overheating or creating a hazard.</p>
+  <p>The project was to build a refrigerator from leftover supplies and a prefabricated cooler, with two stipulations: no liquid cooling and no pressurized systems. The goal was to keep a refrigerant standard, reaching 40°F or lower without overheating or creating a hazard.</p>
 
   <h2>Why a Peltier module</h2>
   <p>Vapor-compression refrigeration, the kind in a home fridge, needs a compressor and pressurized refrigerant, so the rules ruled it out. Evaporative cooling depends on humidity and adds moisture, which is bad for food. That left thermoelectric cooling: a Peltier module moves heat from one side to the other using only electricity, with no fluids and no moving parts apart from the fans.</p>
 
   <h2>The build</h2>
-  <p>We cut a beveled square opening in the Styrofoam lid and fit the Peltier module there, with a heat sink on the cold side inside the cooler and a heat sink and fan on the hot side outside. Insulation tape and double-sided adhesive sealed the gaps around the module. A 20 V battery fed a 20-to-12 V transformer to power it, within the 12 V DC limit.</p>
+  <p>I cut a beveled square opening in the Styrofoam lid and fit the Peltier module there, with a heat sink on the cold side inside the cooler and a heat sink and fan on the hot side outside. Insulation tape and double-sided adhesive sealed the gaps around the module. A 20 V battery fed a 20-to-12 V transformer to power it, within the 12 V DC limit.</p>
 </main>
 
 <div class="wide">
@@ -80,13 +80,13 @@ footer { max-width:680px; margin:0 auto; padding:0 1.25rem 3rem; color:var(--mut
 <div class="wide diagram">
   <figure>
     <img src="images/peltier-diagram.jpg" alt="Cross-section drawing of the Styrofoam cooler with the Peltier module in the lid, showing heat leaving through the hot-side heat sink and fans, and heat leaking in through the walls." width="1400" height="1125">
-    <figcaption>Our design drawing. Heat is pulled out through the cold-side heat sink and pushed out the top, while some heat keeps leaking in through the walls.</figcaption>
+    <figcaption>My design drawing. Heat is pulled out through the cold-side heat sink and pushed out the top, while some heat keeps leaking in through the walls.</figcaption>
   </figure>
 </div>
 
 <main>
-  <h2>How we tested it</h2>
-  <p>We let the cooler sit in a room until it matched the room temperature, confirmed 12 V with a multimeter, then powered it on and read the inside temperature at set intervals. We also measured the current drawn so we could calculate power in, and logged everything in Excel.</p>
+  <h2>How I tested it</h2>
+  <p>I let the cooler sit in a room until it matched the room temperature, confirmed 12 V with a multimeter, then powered it on and read the inside temperature at set intervals. I also measured the current drawn so I could calculate power in, and logged everything in Excel.</p>
 </main>
 
 <div class="wide">
@@ -160,12 +160,12 @@ footer { max-width:680px; margin:0 auto; padding:0 1.25rem 3rem; color:var(--mut
   <h2>Results</h2>
   <ul class="facts">
     <li><b>73.2°F to 52.7°F</b><span>Test 1, over 2 hours</span></li>
-    <li><b>Missed 40°F</b><span>The target we set out to reach</span></li>
+    <li><b>Missed 40°F</b><span>The target I set out to reach</span></li>
     <li><b>COP 0.12 to 0.16</b><span>Across the two tests</span></li>
     <li><b>Under 1%</b><span>Second-law efficiency</span></li>
   </ul>
   <p>The refrigerator worked, but not well enough. It cooled the inside by about 20°F, and cooling slowed as it approached steady state. It never reached the 40°F requirement.</p>
-  <p>We compared the actual coefficient of performance (COP) with the ideal Carnot limit for the same temperatures. Test 1 drew 48.5 W (12 V at 4.04 A) and removed about 7.9 W of heat, for a COP of 0.164 against a Carnot limit near 25. That gap, under 1% second-law efficiency, is how much real losses cost us.</p>
+  <p>I compared the actual coefficient of performance (COP) with the ideal Carnot limit for the same temperatures. Test 1 drew 48.5 W (12 V at 4.04 A) and removed about 7.9 W of heat, for a COP of 0.164 against a Carnot limit near 25. That gap, under 1% second-law efficiency, is how much real losses cost me.</p>
 
   <h2>What held it back</h2>
   <ul>
@@ -175,7 +175,7 @@ footer { max-width:680px; margin:0 auto; padding:0 1.25rem 3rem; color:var(--mut
     <li>The cold side iced over quickly in every test.</li>
   </ul>
 
-  <h2>What we would change</h2>
+  <h2>What I would change</h2>
   <ul>
     <li>A larger cold-side heat sink with fans.</li>
     <li>More Peltier modules, or a smaller enclosure.</li>
